@@ -1,7 +1,7 @@
 name: 'PR source branch validation Check'
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Vr
-        if: github.base_ref == 'master' && github.head_ref != 'release'
+        if: github.base_ref == 'main' && github.head_ref != 'release'
         run: |
           echo "ERROR: You can only merge to master from release."
           exit 1
