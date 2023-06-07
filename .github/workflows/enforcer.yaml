@@ -8,8 +8,7 @@ on:
       - reopened
       - synchronize
       - ready_for_review
-    branches:
-      - github-action
+    
 
 jobs:
   verify_branch:
