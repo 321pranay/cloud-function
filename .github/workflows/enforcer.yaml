@@ -1,4 +1,4 @@
-name: 'PR source branch validation Check github-action-2'
+name: 'PR source branch validation Check'
 
 on:
   pull_request:
