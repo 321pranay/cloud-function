@@ -1,0 +1,22 @@
+name: 'PR source branch validation Check'
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - ready_for_review
+    branches:
+      - github-action
+
+jobs:
+  verify_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vr
+        if: github.base_ref == 'github-action' && github.head_ref != 'release'
+        run: |
+          echo "ERROR: You can only merge to master from release."
+          exit 1
