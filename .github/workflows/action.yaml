@@ -9,14 +9,14 @@ on:
       - synchronize
       - ready_for_review
     branches:
-      - main
+      - github-action
 
 jobs:
   verify_branch:
     runs-on: ubuntu-latest
     steps:
       - name: Vr
-        if: github.base_ref == 'main' && github.head_ref != 'release'
+        if: github.base_ref == 'github-action' && github.head_ref != 'release'
         run: |
           echo "ERROR: You can only merge to master from release."
           exit 1
