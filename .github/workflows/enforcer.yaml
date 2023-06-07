@@ -6,8 +6,6 @@ on:
       - opened
       - edited
       - reopened
-      - synchronize
-      - ready_for_review
     branches:
       - github-action
 
@@ -16,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Vr
-        if: github.base_ref == 'github-action' && github.head_ref != 'github-action-2'
+        if: github.base_ref == 'github-action' && github.head_ref != 'release'
         run: |
           echo "ERROR: You can only merge to master from release."
           exit 1
